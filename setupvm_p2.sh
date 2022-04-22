@@ -2,7 +2,7 @@
 
 # clone all mlcommons (maybe done in a previous step)
 # Cp the workload we care about (image_segmentation)
-git clone https://github.com/jovonho/training.git /mlcommons_training
+git clone https://jovonho:${GIT_API_TOKEN}@github.com/jovonho/training.git /mlcommons_training
 
 # Had a problem with runtime=nvidia, went back and tried to install cuda docker (didnt have to do this before but there was a recent update that might have changed that)
 /mlcommons_training/install_cuda_docker.sh 
@@ -13,7 +13,7 @@ mv /workloads/pytorch /workloads/imseg
 
 
 # Install tracing tools
-git clone https://github.com/jovonho/mlperf-traces.git /tracing_tools
+git clone https://jovonho:${GIT_API_TOKEN}@github.com/jovonho/mlperf-traces.git /tracing_tools
 
 #Mods done: disk name is xvda vs sda
 
