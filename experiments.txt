@@ -1,0 +1,40 @@
+Notes:
+- think I will use p3.8xlarge instances since less RAM (244GB) to fill up
+
+Image Segmentation
+
+Run all experiments: with 1 GPU and all GPUs
+
+0 - default run:
+    dataset < RAM
+    expected: similar results as last time
+
+1 - naive duplication
+    copy paste input files until > RAM
+
+2 - noise add + duplication
+    copy paste input files + add random noise to each until > RAM
+
+- Do we want to try multiple levels of scaling? i.e. 2x RAM, 10x RAM ?
+- Same experiements but by reducing the RAM avilable to process. 
+
+Goal is to see if the fake data behaves the same as real
+Achieve same scaling factors with only real data.
+
+- enable checkpointing (run with first)
+
+
+TODO:
+
+- make table of experiments (high priority)
+- check out NVIDIA nsight tool. Apparently better for tracing GPU than smi which is not very accurate. (low priority)
+
+- mmap tracing (reach out to Bryan)
+    what is the mmap doing? inter thread comms less intersting, if handles data yes
+
+- (nice to have) Setup automated VM launch and test parametrization infra.
+
+- Port to tensorflow. 
+    Will need to validate the algorithm by doing a full training run and seeing if the desired accuracy is reached
+
+- what next?
