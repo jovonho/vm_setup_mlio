@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo su -
+
 # Update packages
 apt update -y
 apt upgrade -y

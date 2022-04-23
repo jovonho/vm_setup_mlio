@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo su -
+
 # clone all mlcommons (maybe done in a previous step)
 # Cp the workload we care about (image_segmentation)
 git clone https://jovonho:${GIT_API_TOKEN}@github.com/jovonho/training.git /mlcommons_training
