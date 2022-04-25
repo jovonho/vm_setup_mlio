@@ -15,6 +15,14 @@ apt autoremove -y
 apt-get install -y bpftrace sysstat python3-pip docker.io nvidia-driver-510 nvidia-dkms-510
 
 echo "#####################################################"
-echo "Please manually reboot the instance from AWS Console"
+echo "Please manually edit /etc/default/grub, changing" \
+echo "\tGRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\""
+echo "to"
+echo "\tGRUB_CMDLINE_LINUX_DEFAULT=\"text\""
+echo "then run update-grub"
+echo "Finally, manually reboot the instance from AWS Console"
 echo "#####################################################"
 exit 0
+
+
+https://askubuntu.com/questions/16371/how-do-i-disable-x-at-boot-time-so-that-the-system-boots-in-text-mode 
