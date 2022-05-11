@@ -1,6 +1,11 @@
 #!/bin/bash
 
-sudo su -
+# Force running as root
+if [ "${EUID:-$(id -u)}" -ne 0 ]
+then
+        echo "Run script as root"
+        exit -1
+fi
 
 # clone all mlcommons (maybe done in a previous step)
 # Cp the workload we care about (image_segmentation)
@@ -16,6 +21,9 @@ cd /tracing_tools
 # Checkout correct branch for experiments
 # Mods done: disk name is xvda vs sda
 git checkout awsvm
+
+# Install experiment scheduling tools
+git clone https://jovonho:${GIT_API_TOKEN}@github.com/jovonho/experiments.git /experiments
 
 
 #Clone Imseg raw data

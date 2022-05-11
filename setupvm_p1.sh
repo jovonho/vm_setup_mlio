@@ -1,6 +1,11 @@
 #!/bin/bash
 
-sudo su -
+# Force running as root
+if [ "${EUID:-$(id -u)}" -ne 0 ]
+then
+        echo "Run script as root"
+        exit -1
+fi
 
 # Update packages
 apt update -y
