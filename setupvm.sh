@@ -52,8 +52,16 @@ git clone https://github.com/neheller/kits19
 cd kits19
 pip3 install -r requirements.txt
 python3 -m starter_code.get_imaging
-# Connection dropped after 100 cases the first time
-# All good, downloading picks up where it left off!
+
+# Often the connection drops with some cases remaining.
+# Check if there are 300 and if not, restart the download
+# if picks up where it left off automatically.
+num_cases=$(ls | grep case_ | wc -w)
+if [[ num_cases -lt 300 ]]
+then
+	python3 -m starter_code.get_imaging
+fi
+
 mkdir preprocessed_data
 
 
